@@ -3,13 +3,13 @@ const submitButton = document.getElementById('submitButton');
 
 // Function to toggle visibility of containers
 function showContainer(containerId) {
-  const containers = document.querySelectorAll('questions-container');
+  const containers = document.querySelectorAll('.questions-container');
   containers.forEach(container => {
-    if (container.id === containerId) {
-      container.classList.remove('hidden');
-    } else {
-        container.classList.add('hidden');
-    }
+      if (container.id === containerId) {
+          container.classList.remove('hidden');
+      } else {
+          container.classList.add('hidden');
+      }
   });
 }
 
