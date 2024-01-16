@@ -36,14 +36,22 @@ submitButton.addEventListener('click', async () => {
 
     localStorage.setItem('userResponses', JSON.stringify(userResponses));
 
-      // Display the workout plan on the webpage
-      const workoutPlanContainer = document.getElementById('workoutPlanContainer');
-      workoutPlanContainer.innerHTML = `<p>${workoutPlan}</p>`;
-      // Handle the response from the server as needed
-      console.log('User responses saved to local storage:', userResponses);
-
-    } catch (error) {
-      // Handle errors
-      console.error('Error:', error);
-    }
-  });
+     // Simulate an asynchronous operation to get workout plan (replace this with actual logic)
+     const workoutPlanResponse = await fetch('https://api.openai.com/v1/chat/completions');
+     const workoutPlanData = await workoutPlanResponse.json();
+     
+     // Assuming workout plan is a property of the fetched data
+     const workoutPlan = workoutPlanData.workoutPlan;
+ 
+     // Display the workout plan on the webpage
+     const workoutPlanContainer = document.getElementById('workoutPlanContainer');
+     workoutPlanContainer.innerHTML = `<p>${workoutPlan}</p>`;
+ 
+     // Handle the response from the server as needed
+     console.log('User responses saved to local storage:', userResponses);
+ 
+   } catch (error) {
+     // Handle errors
+     console.error('Error:', error);
+   }
+ });
